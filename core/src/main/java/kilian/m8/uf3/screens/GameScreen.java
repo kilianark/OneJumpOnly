@@ -37,15 +37,15 @@ public class GameScreen implements Screen {
 
         stage = new Stage();
 
-        btnLeft = new SimpleBtn(AssetManager.btnLeft, -20f, 0f, Settings.BUTTON_WIDTH, Settings.BUTTON_HEIGHT);
-        btnRight = new SimpleBtn(AssetManager.btnRight, 75f, 0f, Settings.BUTTON_WIDTH, Settings.BUTTON_HEIGHT);
-        btnJump = new SimpleBtn(AssetManager.btnJump, Settings.SCREEN_WIDTH - Settings.BUTTON_WIDTH, 0f, Settings.BUTTON_WIDTH, Settings.BUTTON_HEIGHT);
-
         player = new Player();
         stage.addActor(player);
 
-        ground = new Ground(AssetManager.groundTexture, 200f, 100f, 400f, 40f);
+        ground = new Ground(AssetManager.groundTexture, -150f, -200f, 900f, 600f);
         stage.addActor(ground);
+
+        btnLeft = new SimpleBtn(AssetManager.btnLeft, -20f, 0f, Settings.BUTTON_WIDTH, Settings.BUTTON_HEIGHT);
+        btnRight = new SimpleBtn(AssetManager.btnRight, 75f, 0f, Settings.BUTTON_WIDTH, Settings.BUTTON_HEIGHT);
+        btnJump = new SimpleBtn(AssetManager.btnJump, Settings.SCREEN_WIDTH - Settings.BUTTON_WIDTH, 0f, Settings.BUTTON_WIDTH, Settings.BUTTON_HEIGHT);
 
         Gdx.input.setInputProcessor(stage);
     }
@@ -94,12 +94,15 @@ public class GameScreen implements Screen {
 
         batch.begin();
         batch.draw(AssetManager.blueDungeonBackground, 0, 0, Settings.SCREEN_WIDTH, Settings.SCREEN_HEIGHT);
+        batch.end();
+
+        stage.draw();
+
+        batch.begin();
         btnLeft.draw(batch);
         btnRight.draw(batch);
         btnJump.draw(batch);
         batch.end();
-
-        stage.draw();
     }
 
     @Override public void resize(int width, int height) {}
