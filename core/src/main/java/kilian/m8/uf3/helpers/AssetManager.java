@@ -30,6 +30,8 @@ public class AssetManager {
 
     public static Texture groundTexture;
 
+    public static Texture spikes;
+
 
     public static void load() {
         Texture backgroundTexture = new Texture("images/background/blueDungeon.png");
@@ -37,6 +39,9 @@ public class AssetManager {
 
         groundTexture = new Texture("images/structures/noHarmful/ground.png");
         groundTexture.setFilter(Texture.TextureFilter.Nearest, Texture.TextureFilter.Nearest);
+
+        spikes = new Texture("images/structures/harmful/spikes.png");
+        spikes.setFilter(Texture.TextureFilter.Nearest, Texture.TextureFilter.Nearest);
 
         sheetPlayerMoveRt = new Texture("images/player/moveRt.png");
         sheetPlayerMoveRt.setFilter(Texture.TextureFilter.Nearest, Texture.TextureFilter.Nearest);
